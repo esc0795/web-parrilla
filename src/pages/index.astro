@@ -1,0 +1,201 @@
+<style>
+  body {
+    background-color: #000;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+
+  h1 {
+    font-size: 2.5em;
+    margin: 0.67em 0;
+  }
+
+  p {
+    margin: 0.5em 0;
+  }
+
+  a {
+    color: #1e90ff;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  /* Horizontal Menu styles */
+  .menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: center; /* Center the menu horizontally */
+    align-items: center;
+    width: 100%;
+    background: #000000;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100px;
+    z-index: 1000;
+    transition: none;
+  }
+  .menu li {
+    border-bottom: none;
+    border-right: 1px solid hsl(0, 100%, 100%);
+    height: 56px;
+    display: flex;
+    align-items: center;
+    font-family: "Oswald";
+    font-size: 25px; 
+  }
+  .menu li:last-child {
+    border-right: none;
+  }
+  .menu li a {
+    display: block;
+    color: #ece4e4;
+    padding: 0 75px;
+    text-decoration: none;
+    line-height: 56px;
+    transition: 0.2s;
+  }
+  .menu li a:hover {
+    background: #c70a0a;
+    color: #f3d320;
+  }
+
+  /* Hamburger styles */
+  .menu-toggle {
+    display: none;
+  }
+  .hamburger {
+    display: none;
+    position: fixed;
+    top: 12px;
+    left: 18px;
+    width: 32px;
+    height: 32px;
+    z-index: 1100;
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .hamburger span {
+    display: block;
+    height: 4px;
+    width: 100%;
+    background: #fff;
+    border-radius: 2px;
+    margin-bottom: 6px;
+    transition: 0.3s;
+  }
+  .hamburger span:last-child {
+    margin-bottom: 0;
+  }
+
+  /* Logo styles */
+  .logo {
+    position: fixed;
+    top: 8px;
+    left: 18px;
+    height: 40px;
+    width: auto;
+    z-index: 1200;
+  }
+
+  /* Responsive styles */
+  @media (max-width: 900px) {
+    .menu {
+      flex-direction: column;
+      align-items: flex-start;
+      height: auto;
+      width: 220px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      transform: translateX(-100%);
+      transition: transform 0.3s ease;
+    }
+    .menu-toggle:checked + .hamburger + .menu {
+      transform: translateX(0);
+    }
+    .hamburger {
+      display: flex;
+    }
+    body {
+      padding-top: 0;
+    }
+    .menu li {
+      border-right: none;
+      border-bottom: 1px solid #222;
+      width: 100%;
+      height: auto;
+    }
+    .menu li:last-child {
+      border-bottom: none;
+    }
+    .menu li a {
+      padding: 18px 24px;
+      line-height: normal;
+    }
+    .logo {
+      top: 8px;
+      left: 60px; /* Leaves space for hamburger */
+      height: 36px;
+    }
+    .hamburger {
+      left: 18px;
+    }
+  }
+  @media (min-width: 901px) {
+    .menu {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 75px;
+      width: 100%;
+      flex-direction: row;
+      transform: none;
+      display: flex;
+      justify-content: center; /* Center the menu horizontally on desktop */
+    }
+    .hamburger {
+      display: none;
+    }
+    body {
+      padding-top: 56px;
+      padding-left: 0;
+    }
+    .logo {
+      top: 8px;
+      left: 35px;
+      height: 250px;
+      width: 250px;
+    }
+  }
+</style>
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <img src="/public/images/grillers.png" alt="Logo" class="logo" />
+
+    <input type="checkbox" id="menu-toggle" class="menu-toggle" />
+    <label for="menu-toggle" class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </label>
+    <ul class="menu">
+        <li><a href="#">Menu</a></li>
+        <li><a href="#">Nosotros</a></li>
+        <li><a href="#">Servicios</a></li>
+        <li><a href="#">Contacto</a></li>
+    </ul>   
+</body>
