@@ -127,12 +127,12 @@ function getPrice(count) {
     let price = 0;
 
     // Ranges from prompt:
-    // 1 to 20: 8000
+    // 1 to 20: 8500
     // 21 to 49: 7500
     // 50 to 100: 7000
 
     if (count >= 1 && count <= 20) {
-        price = 8000;
+        price = 8500;
     } else if (count >= 21 && count <= 49) {
         price = 7500;
     } else if (count >= 50) {
